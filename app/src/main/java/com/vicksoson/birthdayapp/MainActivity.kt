@@ -16,9 +16,18 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.hide()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding?.root)
+        var count = 0
         binding?.button?.setOnClickListener {
-            binding?.imageView?.visibility = View.VISIBLE
-            binding?.layout?.setBackgroundResource(R.drawable.happy_birthday)
+            count++
+            if(count % 2 == 0 ) {
+                binding?.imageView?.visibility = View.VISIBLE
+                binding?.layout?.setBackgroundResource(R.color.purple_200)
+                binding?.button?.text = "RESET"
+            }else{
+                binding?.imageView?.visibility = View.INVISIBLE
+                binding?.layout?.setBackgroundResource(R.color.white)
+                binding?.button?.text = "SEE MAGIC"
+            }
         }
 
     }
